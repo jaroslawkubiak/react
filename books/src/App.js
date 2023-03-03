@@ -4,7 +4,7 @@ import BookList from "./components/BookList.js";
 import BooksContext from './context/books';
 
 function App() {
-  // sięgamy po cały obiekt do Bookscontext, ale bierzemy tylko funckę fetch books
+  // sięgamy po cały obiekt do Bookscontext, ale bierzemy tylko funkcję fetch books
   const { fetchBooks } = useContext(BooksContext);
 
   //drugi argument funkcji, mówi kiedy funkcja ma być wykonana

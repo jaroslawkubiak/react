@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from 'axios';
 
 //wybieramy nazwę bookcontext - obojętnie jaką
@@ -7,10 +7,16 @@ const BooksContext = createContext();
 function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
-  const fetchBooks = async () => {
+  // zawijamy w useCallback funkcję pobierającą książki
+  // można napisać to tak:
+  // const stableFetchBooks = useCallback(fetchBooks, []);
+  // zamiast tworzyć nową funckję stableFetchBooks, zawijamy fetchBooks w useCallback
+  const fetchBooks = useCallback(async () => {
     const response = await axios.get("http://localhost:3001/books");
     setBooks(response.data);
-  };
+  }, []);
+
+
 
   const deleteBookById = async id => {
     await axios.delete(`http://localhost:3001/books/${id}`);
