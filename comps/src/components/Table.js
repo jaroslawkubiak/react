@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+
 function Table({ data, config, keyFn }) {
   //renderujemy wiersz
   const renderedRows = data.map(rowData => {
@@ -18,6 +20,9 @@ function Table({ data, config, keyFn }) {
 
   //renderujemy nagłówki - label z obiektu config
   const renderedHeaders = config.map(column => {
+    if (column.header) {
+      return <Fragment key={column.label}>{column.header()}</Fragment>;
+    }
     return <th key={column.label}>{column.label}</th>;
   });
 
