@@ -46,7 +46,7 @@ function SortableTable(props) {
           className="cursor-pointer hover:text-blue-500"
           onClick={() => handleClick(column.label)}
         >
-          <div className="flex items-center ">
+          <div className=" flex items-center p-2">
             {getIcons(column.label, sortBy, sortOrder)}
             {column.label}
           </div>
