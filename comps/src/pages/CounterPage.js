@@ -1,45 +1,75 @@
+import { useReducer } from "react";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
-import { useReducer } from "react";
 
-//state - to obiekt z useReducer
+// action types constans variable
+const INCREMENT_COUNT = "increment";
+const DECREMENT_COUNT = "decrement";
+const CHANGE_VALUE_TO_ADD = "change-value-to-add";
+const FORM_SUBMIT = "form-submit";
+
+// state - to obiekt z useReducer
 const reducer = (state, action) => {
   // action to argument podany w funkcji dispatch, podajemy 0 lub jeden agrument
   // cokolwiek zwraca reducer to będzie nasz nowy state object
-
-  return {
-    ...state,
-    count: state.count + 1,
-  };
+  switch (action.type) {
+    case INCREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case DECREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    case CHANGE_VALUE_TO_ADD:
+      return {
+        ...state,
+        valueToAdd: action.payload,
+      };
+    case FORM_SUBMIT:
+      return {
+        ...state,
+        count: state.valueToAdd + state.count,
+        valueToAdd: 0,
+      };
+    default:
+      return state;
+  }
 };
 
 function CounterPage({ initialCount }) {
-  // const [count, setCount] = useState(initialCount);
-  // const [valueToAdd, setValueToAdd] = useState(0);
-
   const [state, dispatch] = useReducer(reducer, {
     count: initialCount,
     valueToAdd: 0,
   });
 
   const increment = () => {
-    dispatch();
+    dispatch({
+      type: INCREMENT_COUNT,
+    });
   };
 
   const decrement = () => {
-    dispatch();
+    dispatch({
+      type: DECREMENT_COUNT,
+    });
   };
 
   const handleChange = event => {
     const value = parseInt(event.target.value) || 0;
-
-    // setValueToAdd(value);
+    dispatch({
+      type: CHANGE_VALUE_TO_ADD,
+      payload: value,
+    });
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    // setCount(count + valueToAdd);
-    // setValueToAdd(0);
+    dispatch({
+      type: FORM_SUBMIT,
+    });
   };
 
   return (
