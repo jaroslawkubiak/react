@@ -1,38 +1,13 @@
-import { useState } from "react";
-import Table from "./Table";
 import { GoArrowSmallDown, GoArrowSmallUp } from "react-icons/go";
+import Table from "./Table";
+import useSort from "../hooks/use-sort";
 
 function SortableTable(props) {
   const { config, data } = props;
-
-  const [sortOrder, setSortOrder] = useState(null);
-  const [sortBy, setSortBy] = useState(null);
-
-  const handleClick = label => {
-    // upewniamy się że sortowanie się zeruje gdy zmieniamy kolumnę po której sortujemy
-    if (sortBy && label !== sortBy) {
-      setSortOrder("asc");
-      setSortBy(label);
-      return;
-    }
-
-    switch (sortOrder) {
-      case null:
-        setSortOrder("asc");
-        setSortBy(label);
-        break;
-      case "asc":
-        setSortOrder("desc");
-        setSortBy(label);
-        break;
-      case "desc":
-        setSortOrder(null);
-        setSortBy(null);
-        break;
-      default:
-        break;
-    }
-  };
+  const { sortOrder, sortBy, setSortColumn, sortedData } = useSort(
+    config,
+    data
+  );
 
   const updatedConfig = config.map(column => {
     if (!column.sortValue) {
@@ -44,7 +19,7 @@ function SortableTable(props) {
       header: () => (
         <th
           className="cursor-pointer hover:text-blue-500"
-          onClick={() => handleClick(column.label)}
+          onClick={() => setSortColumn(column.label)}
         >
           <div className=" flex items-center p-2">
             {getIcons(column.label, sortBy, sortOrder)}
@@ -54,29 +29,6 @@ function SortableTable(props) {
       ),
     };
   });
-
-  // only sort data if sortOrder && sortBy are not null
-  // make a copy of the data prop
-  // find the correct sort value function and use it
-  let sortedData = data;
-  // jak oba nie są null to musimy przeprowadzić jakieś sortowanie
-  if (sortOrder && sortBy) {
-    //sortValue to funkcja pochodząca z obiektu config
-    const { sortValue } = config.find(column => column.label === sortBy);
-    sortedData = [...data].sort((a, b) => {
-      const valueA = sortValue(a);
-      const valueB = sortValue(b);
-
-      //sprawdzamy jaka ma być kolejność sortowania, jak DESC to mnożymy wynik sort asc * -1 co daje odwrotne sortowanie!
-      const reverseOrder = sortOrder === "asc" ? 1 : -1;
-
-      if (typeof valueA === "string") {
-        return valueA.localeCompare(valueB) * reverseOrder;
-      } else {
-        return (valueA - valueB) * reverseOrder;
-      }
-    });
-  }
 
   return (
     <div>
