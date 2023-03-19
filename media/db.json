@@ -1,5 +1,18 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Han Solo",
+      "id": 2
+    },
+    {
+      "name": "Luke Skywalker",
+      "id": 3
+    },
+    {
+      "name": "C3PO",
+      "id": 12
+    }
+  ],
   "albums": [],
   "photos": []
 }

@@ -6,3 +6,8 @@ export const store = configureStore({
     users: usersReducer,
   },
 });
+
+// znajdz wszystko z tych plików co jest exportowane i wyeksportuj
+export * from "./thunks/fetchUsers";
+export * from "./thunks/addUser";
+export * from "./thunks/removeUser";
