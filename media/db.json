@@ -3,16 +3,145 @@
     {
       "name": "Han Solo",
       "id": 2
-    },
-    {
-      "name": "Luke Skywalker",
-      "id": 3
-    },
-    {
-      "name": "C3PO",
-      "id": 12
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "userId": 2,
+      "title": "Nowa nadzieja",
+      "id": 41
+    },
+    {
+      "userId": 2,
+      "title": "Imperium kontratakuje",
+      "id": 42
+    },
+    {
+      "userId": 2,
+      "title": "Powrót Jedi",
+      "id": 43
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=17158",
+      "id": 1
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=61669",
+      "id": 2
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=83374",
+      "id": 12
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=2963",
+      "id": 13
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=8535",
+      "id": 14
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=38482",
+      "id": 15
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=74909",
+      "id": 16
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=8220",
+      "id": 17
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=31204",
+      "id": 18
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=12938",
+      "id": 19
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=83226",
+      "id": 20
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=31160",
+      "id": 21
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=21624",
+      "id": 22
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=37721",
+      "id": 23
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=49145",
+      "id": 24
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=25510",
+      "id": 25
+    },
+    {
+      "albumId": 41,
+      "url": "https://loremflickr.com/150/150/abstract?lock=43842",
+      "id": 26
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=76887",
+      "id": 27
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=71497",
+      "id": 28
+    },
+    {
+      "albumId": 44,
+      "url": "https://loremflickr.com/150/150/abstract?lock=96423",
+      "id": 29
+    },
+    {
+      "albumId": 44,
+      "url": "https://loremflickr.com/150/150/abstract?lock=88380",
+      "id": 30
+    },
+    {
+      "albumId": 44,
+      "url": "https://loremflickr.com/150/150/abstract?lock=67039",
+      "id": 31
+    },
+    {
+      "albumId": 43,
+      "url": "https://loremflickr.com/150/150/abstract?lock=42924",
+      "id": 32
+    },
+    {
+      "albumId": 42,
+      "url": "https://loremflickr.com/150/150/abstract?lock=70850",
+      "id": 33
+    }
+  ]
 }

@@ -5,7 +5,6 @@ function ExpandablePanel({ header, children }) {
   const [expanded, setExpanded] = useState(false);
 
   const handleClick = e => {
-    console.log(e);
     setExpanded(!expanded);
   };
 
