@@ -58,7 +58,7 @@ function Dropdown({ options, value, onChange }) {
         onClick={handleClick}
       >
         {value?.label || "Select..."}
-        <GoChevronDown className="text-xl" />
+        <GoChevronDown className="text-2xl" />
       </Panel>
       {isOpen && <Panel className="absolute top-full">{renderedOptions}</Panel>}
     </div>
